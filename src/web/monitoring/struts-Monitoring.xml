@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 实时监控模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="monitoring" namespace="/" extends="myInterceptor">
+        <action name="monitoring_monitoringList" class="web.monitoring.action.MonitoringAction"
+                method="monitoringList">
+            <result name="monitoringList_SUCCESS">
+                /WEB-INF/pages/monitoring/monitoringList.jsp
+            </result>
+        </action>
+
+        <action name="monitoring_updateFrequencyTo" class="web.monitoring.action.MonitoringAction"
+                method="updateFrequencyTo">
+            <result name="updateFrequencyTo_SUCCESS">
+                /WEB-INF/pages/monitoring/FrequencyManager.jsp
+            </result>
+        </action>
+
+        <action name="monitoring_updateFrequency" class="web.monitoring.action.MonitoringAction"
+                method="updateFrequency">
+            <result name="updateFrequency_SUCCESS" type="json"/>
+        </action>
+
+        <action name="monitoring_monitoring" class="web.monitoring.action.MonitoringAction"
+                method="monitoring">
+            <result name="monitoring_SUCCESS" type="json"/>
+        </action>
+
+        <action name="monitoring_mapQuery" class="web.monitoring.action.MonitoringAction"
+                method="mapQuery">
+            <result name="mapQuery_SUCCESS" type="json"/>
+        </action>
+
+    </package>
+
+</struts>

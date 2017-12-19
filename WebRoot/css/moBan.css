@@ -1,0 +1,635 @@
+@charset "utf-8";
+
+* {
+    font-size: 9pt; /*字体尺寸为 9pt*/
+    border: 0; /*边框为0*/
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+}
+
+body {
+    font-family: '微软雅黑', sans-serif; /*字体为 微软雅黑*/
+    margin: 0 auto; /*外边距 左右为0 上下自适应*/
+}
+
+ul {
+    display: block; /*框类型为块级元素*/
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+    list-style: none; /*列表属性为空*/
+}
+
+li {
+    display: block; /*框类型为块级元素*/
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+    list-style: none; /*列表属性为空*/
+}
+
+img {
+    border: 0; /*边框为0*/
+}
+
+dl, dt, dd, span {
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+    display: block; /*框类型为块级元素*/
+}
+
+a, a:focus {
+    text-decoration: none; /*文本装饰效果为空*/
+    color: #000; /*字体颜色为#000000*/
+    outline: none; /*轮廓属性为空*/
+    blr: expression(this.onFocus=this.blur()); /*按下鼠标图片周边不会出现虚线*/
+}
+
+a:hover {
+    color: #00a4ac; /*字体颜色为#00a4ac*/
+    text-decoration: none; /*文本装饰效果为空*/
+}
+
+table {
+    border-collapse: collapse; /*合并边框*/
+    border-spacing: 0; /*边距距离为0*/
+}
+
+cite {
+    font-style: normal; /*字体样式为默认*/
+}
+
+h2 {
+    font-weight: normal; /*字体粗细为默认*/
+}
+
+.header {
+    height: 88px; /*高为88px*/
+}
+
+/*主界面 顶部*/
+#topId {
+    min-width: 1300px; /*元素最小宽度为1300px*/
+}
+
+/*顶部导航栏*/
+#top {
+    background-color: #263548; /*背景颜色为#263548*/
+    width: 100%; /*宽度为100%*/
+    height: 100px; /*行高为100px*/
+    text-align: left; /*文本对齐方式为左对齐*/
+}
+
+/*Logo 上左部*/
+.topLeft {
+    width: 250px; /*宽度为250px*/
+    height: 100px; /*行高为100px*/
+    float: left; /*浮动方式为左浮动*/
+    background-color: #1a2634; /*背景颜色为#1a2634*/
+}
+
+.topLeft img {
+    margin: 25px 0 0 50px; /*外边距 上为12px 右为0 下为0 左为10px*/
+}
+
+/*导航栏 上中部*/
+.nav {
+    float: left; /*浮动方式为左浮动*/
+}
+
+.nav li {
+    float: left; /*浮动方式为左浮动*/
+    width: 100px; /*宽度为100px*/
+    height: 100px; /*行高为100px*/
+    text-align: center; /*文字对齐方式为居中对齐*/
+}
+
+.nav li a {
+    display: block; /*框类型为块级元素*/
+    width: 100px; /*宽度为100px*/
+    height: 100px; /*行高为100px*/
+    transition: background-color 0.3s linear; /*过渡效果 属性的名称为background-color 需要时间为0.3s 速度曲线为开始到结束速度相同*/
+    -moz-transition: background-color 0.3s linear;
+    -webkit-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+}
+
+.nav li a.selected {
+    /*background: url(../images/navbg.png) no-repeat; 背景图片为空*/
+}
+
+.nav li a:hover {
+    display: block; /*框类型为块级元素*/
+    color: #FFFFFF; /*文本颜色为白色*/
+    background: #2B7FB5 none repeat scroll 0 0; /*背景颜色为#2B7FB5 未设置背景图片 图片重复 背景图片随浏览器下拉而滚动 水平位置在x0 垂直位置在y0*/
+}
+
+.nav li a {
+    display: block; /*框类型为块级元素*/
+}
+
+.nav li img {
+    margin-top: 0; /*上外边距为零*/
+}
+
+/*操作以及登录信息 上右部*/
+.topRight {
+    float: right; /*浮动方式为右浮动*/
+    height: 100px; /*行高为100px*/
+}
+
+.topRight ul {
+    padding: 15px 12px 0 0; /*内边距 上为15px 右为12px 下为0 左为0*/
+    float: right; /*浮动方式为右浮动*/
+
+}
+
+.topRight ul li {
+    float: left; /*浮动方式为左浮动*/
+    padding: 0 9px 0 9px; /*内边距 上为0 右为9px 下为0 左为9px*/
+    background: url(../images/line.gif) no-repeat right; /*背景属性 图片路径为../images/line.gif 图片唯一 初始位置为右侧*/
+}
+
+.topRight ul li:last-child { /*最后一个子节点  */
+    background: none; /*背景为空*/
+}
+
+.topRight ul li a {
+    font-size: 13px; /*字体尺寸为13px*/
+    color: #e9f2f7; /*字体颜色为#e9f2f7*/
+}
+
+.topRight ul li a:hover {
+    color: #FF0000; /*字体颜色为#FF0000*/
+}
+
+.topRight ul li span {
+    margin-top: 2px; /*外上边距为2px*/
+    padding-right: 3px; /*内右边距为3px*/
+    float: left; /*浮动方式为左浮动*/
+}
+
+.user {
+    height: 30px; /*行高为30px*/
+    background: url(../images/ub1.png) repeat-x; /*背景 路径为url(../images/ub1.png) 沿X轴平铺*/
+    clear: both; /*在左右两侧均不允许浮动元素*/
+    float: right; /*浮动方式为右浮动*/
+    margin: 10px 12px 0 0; /*外边距 上为10px 右为12px 下为0 左为0*/
+    border-radius: 30px; /*圆角边框弧度为30px*/
+    white-space: nowrap; /*文本不换行*/
+    position: relative; /*定位方式为相对定位*/
+}
+
+.user .span {
+    display: inline-block; /*框类型为行内块元素*/
+    padding: 0 10px 0 35px; /*内边距 上为0 右为10px 下为0 左为35px*/
+    background: url(../images/user.png) no-repeat 15px 10px; /*背景 图片路径为../images/user.png 图片不平铺 左边距为15px 上边距为10px*/
+    line-height: 30px; /*行高为30px*/
+    font-size: 14px; /*字体尺寸为14px*/
+    color: #b8ceda; /*字体颜色为#b8ceda*/
+    font-weight: bold; /*字体为粗体*/
+
+}
+
+.user .time {
+    display: inline-block; /*框类型为行内块元素*/
+    padding-right: 10px; /*内右边距为10px*/
+    line-height: 30px; /*行高为30px*/
+    font-size: 14px; /*字体尺寸为14px*/
+    color: #b8ceda; /*字体颜色为#b8ceda*/
+}
+
+/*主界面 容器*/
+#container {
+    clear: both; /*在左右两侧均不允许浮动元素*/
+}
+
+/*主界面 左导航栏*/
+#container .container_left {
+    width: 250px; /*宽度为250px*/
+    background: #263548; /*背景色为#263548*/
+    float: left; /*浮动方式为左浮动*/
+    min-height: 550px; /*最小行高为550px*/
+    overflow-x: hidden; /*X轴溢出裁剪*/
+    overflow-y: auto; /*Y轴溢出提供滚动条*/
+}
+
+/*主界面 中部内容*/
+#container .container_middle {
+    margin: 0 0 0 250px; /*外边距 上为0 右为0 下为0 左为250px*/
+    font-size: 13px; /*字体尺寸为13px*/
+    text-align: left; /*文字对齐方式为左对齐*/
+    position: relative; /*定位方式为相对定位*/
+    min-height: 550px; /*最小行高为550px*/
+}
+
+/*左导航栏*/
+.leftTop {
+    height: 60px; /*行高为60px*/
+    background: #263548; /*背景色为#263548*/
+    color: #FFFFFF; /*字体颜色为#FFFFFF*/
+    font-weight: bold; /*字体为粗体*/
+    font-size: 16px; /*字体尺寸为16px*/
+    line-height: 60px; /*行高为40px*/
+}
+
+.leftTop span {
+    width: 20px; /*宽度为20px*/
+    height: 21px; /*行高为21px*/
+    margin: 20px 35px 0 15px; /*外边距 上为20px 右为35px 下为0 左为15px*/
+    /*background: url(../images/leftico.png) no-repeat; /*图片为../images/leftico.png 不平铺*/
+    float: left; /*浮动方式为左浮动*/
+}
+
+.leftMenu {
+    width: 250px; /*宽度为250px*/
+    overflow: hidden; /*修剪溢出内容*/
+    background: #263548; /*背景色为#263548*/
+}
+
+.leftMenu dd {
+    background: #263548; /*背景色为#263548*/
+    line-height: 40px; /*行高为40px*/
+    font-weight: bold; /*字体为粗体*/
+    font-size: 20px; /*字体尺寸为20px*/
+}
+
+.leftMenu dd span {
+    float: left; /*浮动方式为左浮动*/
+    margin: 0 15px 0 25px; /*外边距 上为0 右为15px 下为0 左为25px*/
+}
+
+.leftMenu dd span img {
+    margin: 4px 0 -4px 0; /*外边距 上为4px 右为0 下为-4px 左为0*/
+}
+
+.leftMenu dd .menusOn {
+    display: none; /*框类型为隐藏*/
+}
+
+.leftMenu dd:first-child .menusOn { /*选择首个元素*/
+    /*display: block;框类型为块显示*/
+}
+
+.title {
+    clear: both; /*在左右两侧均不允许浮动元素*/
+    cursor: pointer; /*光标显示为手*/
+    border-bottom: 1px solid #000000; /*边框为 1px 实线 颜色#000000*/
+    color: #FFFFFF; /*颜色为#FFFFFF*/
+}
+
+.menusOn {
+    line-height: 30px; /*行高为30px*/
+    font-weight: normal; /*字体为默认值*/
+    clear: both; /*在左右两侧均不允许浮动元素*/
+    background-color: #1a2634; /*背景颜色为#1a2634*/
+}
+
+/*鼠标滑动菜单开始*/
+.menusOn li:hover {
+    position: relative; /*定位方式为相对定位*/
+    background: #9AB9FF; /*背景颜色为#9AB9FF*/
+    line-height: 30px; /*行高为30px*/
+}
+
+.menusOn li:hover cite {
+    background: url(../images/list.gif) no-repeat; /*背景为图片../images/list1.gif 不平铺*/
+}
+
+.menusOn li:hover i {
+    width: 6px; /*宽度为6px*/
+    height: 11px; /*行高为11px*/
+    display: block; /*框类型为块级元素*/
+    background: url(../images/sj.png) no-repeat; /*背景为图片../images/sj.png 不平铺*/
+    position: absolute; /*定位方式为绝对定位*/
+    right: -1px; /*向右偏离1px*/
+    top: 9px; /*向下偏移9px*/
+    z-index: 10000; /*放在最上层*/
+
+}
+
+.menusOn li:hover a {
+    color: #000000; /*颜色为#FFFFFF*/
+}
+
+/*鼠标滑动菜单结束*/
+.menusOn li.active {
+    position: relative; /*定位方式为相对定位*/
+    background: #9AB9FF; /*背景颜色为#9AB9FF*/
+    line-height: 30px; /*行高为30px*/
+}
+
+.menusOn li.active cite {
+    background: url(../images/list.gif) no-repeat; /*背景为图片../images/list1.gif 不平铺*/
+}
+
+.menusOn li.active i {
+    width: 6px; /*宽度为6px*/
+    height: 11px; /*行高为11px*/
+    display: block; /*框类型为块级元素*/
+    background: url(../images/sj.png) no-repeat; /*背景为图片../images/sj.png 不平铺*/
+    position: absolute; /*定位方式为绝对定位*/
+    right: -1px; /*向右偏离1px*/
+    top: 9px; /*向下偏移9px*/
+    z-index: 10000; /*放在最上层*/
+}
+
+.menusOn li.active a {
+    color: #000000; /*颜色为#FFFFFF*/
+}
+
+.menusOn li cite {
+    width: 16px; /*宽度为16px*/
+    height: 16px; /*行高为16px*/
+    display: block; /*框类型为块级元素*/
+    float: left; /*浮动方式为左浮动*/
+    margin: 8px 0 0 20px; /*外边距 上为8px 右为0 下为0 左为20px*/
+    background: url(../images/list1.gif) no-repeat; /*背景为图片../images/list.gif 不平铺*/
+
+}
+
+.menusOn li a {
+    display: inline; /*框类型为默认*/
+    padding-top: 5px; /*上内边距为5px*/
+    color: #FFFFFF; /*颜色为#FFFFFF*/
+}
+
+.menusOn li {
+    cursor: pointer; /*光标显示为手*/
+    padding-left: 25px; /*左内边距为25px*/
+}
+
+/*中部主页面*/
+.place {
+    height: 45px; /*行高为45px*/
+    background: #F5F5F5; /*背景颜色为#F5F5F5*/
+}
+
+.place span {
+    line-height: 45px; /*行高为45px*/
+    font-weight: bold; /*字体为粗体*/
+    float: left; /*浮动方式为左浮动*/
+    margin-left: 12px; /*左外边距为12px*/
+    font-size: 14px; /*字体尺寸为20px*/
+}
+
+.placeUl li {
+    float: left; /*浮动方式为左浮动*/
+    line-height: 45px; /*行高为45px*/
+    padding: 0 12px 0 7px; /*内边距 上为0 右为12px 下为0 左为7px*/
+    background: url(../images/rlist.gif) no-repeat right; /*背景为图片../images/list.gif 不平铺 右侧*/
+
+}
+
+.placeUl li:last-child { /*最后一个子节点  */
+    background: none; /*背景为空*/
+}
+
+.placeUl li a {
+    font-size: 12px; /*字体尺寸为20px*/
+}
+
+#workContentId {
+    text-align: left; /*文字对齐方式为左对齐*/
+    overflow: auto; /*内容溢出显示滚动条*/
+    padding: 8px 8px 8px 8px; /*内边距 上为5px 右为2px 下为0 左为5px*/
+}
+
+.rightInfo {
+    padding: 5px; /*内边距 上为5px 右为0 下为0 左为0*/
+}
+
+.tools {
+    clear: both; /*在左右两侧均不允许浮动元素*/
+    height: 40px; /*高为40px*/
+}
+
+.toolbar {
+    float: left; /*浮动方式为左浮动*/
+    width: 320px; /*宽为320px*/
+}
+
+.toolbar li {
+    background: url(../images/toolbg.gif) repeat-x; /*背景为 图片路径../images/toolbg.gif 沿x轴平铺*/
+    line-height: 33px; /*行高为33px*/
+    height: 33px; /*高为33px*/
+    border: solid 1px #d3dbde; /*边框为 1px 实线 颜色#d3dbde*/
+    float: left; /*浮动方式为左浮动*/
+    padding-right: 10px; /*内右边距为10px*/
+    margin-right: 5px; /*右外边距为5px*/
+    border-radius: 3px; /*圆角边距3px*/
+    cursor: pointer; /*鼠标为手*/
+}
+
+.toolbar li span {
+    float: left; /*浮动方式为左浮动*/
+    margin: 5px 5px 0 10px; /*外边距 上为5px 右为5px 下为0 左为10px*/
+}
+
+.sEachForm {
+    float: right; /*浮动方式为右浮动*/
+    width: 760px; /*宽为760px*/
+    text-align: right; /*文字对齐方式为右对齐*/
+}
+
+.sEachForm b {
+    color: #FF0000; /*字体颜色为#FF0000*/
+    padding-left: 2px; /*左内边距为2px*/
+}
+
+.sEachForm label {
+    line-height: 33px; /*行高为33px*/
+    margin-right: 4px; /*右外边距为5px*/
+    float: right; /*浮动方式为右浮动*/
+}
+
+.tableList {
+    clear: both; /*在左右两侧均不允许浮动元素*/
+    border: solid 1px #cbcbcb; /*边框为 1px 实线 颜色#cbcbcb*/
+    width: 100%; /*宽为100%*/
+}
+
+.tableList th {
+    background: url(../images/th.gif) repeat-x; /*背景为 图片路径../images/th.gif 沿x轴平铺*/
+    height: 34px; /*高为34px*/
+    line-height: 34px; /*行高为34px*/
+    border-bottom: solid 1px #b6cad2; /*下边框为 实线 1px 颜色#b6cad2*/
+    text-indent: 5px; /*首行缩进 5px*/
+    text-align: left; /*文字对齐方式为左对齐*/
+}
+
+.tableList td {
+    line-height: 35px; /*行高为34px*/
+    text-indent: 5px; /*首行缩进 5px*/
+    border-right: dotted 1px #c7c7c7; /*右边框 点线 1px 颜色#c7c7c7*/
+}
+
+.tableList tr.odd {
+    background: #f5f8fa; /*背景为 颜色为#f5f8fa*/
+}
+
+.tableList tr:hover {
+    background: #e5ebee; /*背景为 颜色为#e5ebee*/
+}
+
+.tableLink {
+    color: #056dae;
+}
+
+.formBody {
+    padding: 5px 5px; /*内边距 上5px 右5px */
+}
+
+.formInfo {
+    padding: 33px 140px; /*内边距 上5px*/
+}
+
+.formInfo li {
+    clear: both; /*在左右两侧均不允许浮动元素*/
+}
+
+.formInfo li label {
+    width: 120px; /*宽为70px*/
+    line-height: 34px; /*行高为34px*/
+    display: block; /*框类型为块级元素*/
+    float: left; /*浮动方式为左浮动*/
+    text-align: right; /*文字对齐方式为左对齐*/
+    margin-right: 15px; /*右外边距为10px*/
+}
+
+.formInfo b {
+    color: #FF0000; /*字体颜色为 #FF0000*/
+    padding-left: 2px; /*左内边距为2px*/
+}
+
+.formInfo li i {
+    color: #7f7f7f; /*字体颜色为 #7f7f7f*/
+    padding-left: 20px; /*左内边距为20px*/
+    font-style: normal; /*字体样式为默认*/
+}
+
+.formInfo li cite {
+    display: block; /*框类型为块级元素*/
+    padding-top: 10px; /*上内边距为10px*/
+}
+
+.formTitle {
+    height: 32px; /*高为32px*/
+    border-bottom: solid 1px #d0dee5; /*下边框为 实线 1px 颜色#d0dee5*/
+    line-height: 32px; /*行高为32px*/
+    position: relative; /*定位方式为相对定位*/
+    margin-bottom: 3px; /*下外边距为3px*/
+}
+
+.formTitle span {
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: solid 3px #66c9f3;
+    float: left;
+    position: absolute;
+    z-index: 100;
+    bottom: -1px;
+    padding: 0 3px;
+    height: 30px;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+
+.dfInput {
+    width: 600px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #a7b5bc;
+    border-right-color: #ced9df;
+    border-bottom-color: #ced9df;
+    background: url(../images/inputbg.gif) repeat-x;
+    text-indent: 5px;
+    float: left;
+    margin-bottom: 4px;
+}
+
+.scBtn {
+    width: 85px;
+    height: 33px;
+    background: url(../images/btnbg.png) no-repeat center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    behavior: url(../js/PIE.htc);
+}
+
+.scBtn:hover {
+    width: 85px;
+    height: 33px;
+    background: url(../images/btnbg111.png) no-repeat center;
+    border-radius: 3px;
+    behavior: url(../js/PIE.htc);
+}
+
+/**
+地图
+ */
+#allMap {
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+    font-family: "微软雅黑", serif;
+}
+
+.rightInfoMAW {
+    width: 100%;
+    height: 25%;
+    overflow: auto; /*内容溢出显示滚动条*/
+}
+
+.tableListMAW {
+    clear: both; /*在左右两侧均不允许浮动元素*/
+    border: solid 1px #cbcbcb; /*边框为 1px 实线 颜色#cbcbcb*/
+    width: 100%; /*宽为100%*/
+}
+
+.tableListMAW th {
+    background: url(../images/th.gif) repeat-x; /*背景为 图片路径../images/th.gif 沿x轴平铺*/
+    height: 34px; /*高为34px*/
+    line-height: 34px; /*行高为34px*/
+    border-bottom: solid 1px #b6cad2; /*下边框为 实线 1px 颜色#b6cad2*/
+    text-indent: 5px; /*首行缩进 5px*/
+    text-align: center; /*文字对齐方式为居中*/
+}
+
+.tableListMAW td {
+    line-height: 27px; /*行高为34px*/
+    text-indent: 5px; /*首行缩进 5px*/
+    border-right: dotted 1px #c7c7c7; /*右边框 点线 1px 颜色#c7c7c7*/
+    border-bottom: solid 1px #c7c7c7; /*下边框为 实线 1px 颜色#b6cad2*/
+    text-align: center; /*文字对齐方式为居中*/
+}
+
+.tableListMAW tr.odd {
+    background: #f5f8fa; /*背景为 颜色为#f5f8fa*/
+}
+
+.tableListMAW tr:hover {
+    background: #d9e8fb; /*背景为 颜色为#e5ebee*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

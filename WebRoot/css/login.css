@@ -1,0 +1,223 @@
+@charset "utf-8";
+/**
+登陆界面样式表
+ */
+* {
+    font-size: 9pt; /*字体尺寸为 9pt*/
+    border: 0; /*边框为0*/
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+}
+
+body {
+    font-family: '微软雅黑', sans-serif; /*字体为 微软雅黑*/
+    margin: 0 auto; /*外边距 左右为0 上下自适应*/
+    min-width: 980px; /*最小宽度为980px*/
+    min-height: 500px; /*最小高度为500px*/
+    background: #1c77ac url(../images/light.png) no-repeat center top; /*背景 颜色为#1c77ac 图片路径为../images/light.png 图片不平铺 位置默认*/
+    overflow: hidden; /*当内容溢出时修剪*/
+}
+
+ul {
+    display: block; /*框类型为块级元素*/
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+    list-style: none; /*列表属性为空*/
+}
+
+li {
+    display: block; /*框类型为块级元素*/
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+    list-style: none; /*列表属性为空*/
+}
+
+img {
+    border: 0; /*边框为0*/
+}
+
+dl, dt, dd, span {
+    margin: 0; /*外边距为0*/
+    padding: 0; /*内边距为0*/
+    display: block; /*框类型为块级元素*/
+}
+
+a, a:focus {
+    text-decoration: none; /*文本装饰效果为空*/
+    color: #000; /*字体颜色为#000000*/
+    outline: none; /*轮廓属性为空*/
+    blr: expression(this.onFocus=this.blur()); /*按下鼠标图片周边不会出现虚线*/
+}
+
+a:hover {
+    color: #00a4ac; /*字体颜色为#00a4ac*/
+    text-decoration: none; /*文本装饰效果为空*/
+}
+
+/*cloud*/
+#mainBody {
+    width: 100%; /*宽度为100%*/
+    height: 100%; /*高度为100%*/
+    position: absolute; /*元素定位为绝对定位*/
+    z-index: -1; /*元素位于最底层*/
+}
+
+.cloud {
+    position: absolute; /*元素定位为绝对定位*/
+    top: 0; /*上外距离为0*/
+    left: 0; /*上左距离为0*/
+    width: 100%; /*宽度为100%*/
+    height: 100%; /*高度为100%*/
+    background: url(../images/cloud.png) no-repeat; /*背景为 图片路径../images/cloud.png 不平铺*/
+    z-index: 1; /*元素层级为1*/
+    opacity: 0.5; /*透明度为0.5*/
+}
+
+#cloud2 {
+    z-index: 2; /*元素层级为2*/
+}
+
+/*login*/
+/*顶部欢迎条*/
+.loginTop {
+    height: 47px; /*高度为47px*/
+    width: 100%; /*宽度为100%*/
+    top: 0; /*上外边距为0*/
+    position: absolute; /*元素定位为绝对定位*/
+    background: url(../images/loginbg1.png) repeat-x; /*背景为 图片路径../images/loginbg1.png 沿x轴平铺*/
+    z-index: 100; /*元素层级为100*/
+
+}
+
+.loginTop span {
+    line-height: 47px; /*行高为47px*/
+    background: url(../images/loginsj.png) no-repeat 21px 18px; /*背景为 图片路径../images/loginsj.png 不平铺 左边距21px 上边距18px*/
+    text-indent: 44px; /*首行缩进44px*/
+    color: #afc5d2; /*字体颜色为#afc5d2*/
+    float: left; /*浮动方式为左浮动*/
+}
+
+.loginTop ul {
+    float: right; /*浮动方式为右浮动*/
+    padding-right: 30px; /*右内边距为30px*/
+}
+
+.loginTop ul li {
+    float: left; /*浮动方式为左浮动*/
+    margin-left: 20px; /*左外边距为20px*/
+    line-height: 47px; /*行高为47px*/
+}
+
+.loginTop ul li a {
+    color: #afc5d2; /*字体颜色为#afc5d2*/
+}
+
+.loginTop ul li a:hover {
+    color: #FF0000; /*字体颜色为#FF0000*/
+}
+
+.loginBody {
+    background: url(../images/loginbg3.png) no-repeat center center; /*背景为 图片路径../images/loginbg3.png 不平铺 居中*/
+    width: 100%; /*宽度为100%*/
+    height: 585px; /*高度为585px*/
+    overflow: hidden; /*修剪溢出内容*/
+    position: absolute; /*定位方式为绝对定位*/
+    top: 47px; /*距顶部47px*/
+}
+
+.systemLogo {
+    /*background: url(../images/loginlogo.png) no-repeat center; Logo为 图片路径../images/loginlogo.png 不平铺 居中*/
+    width: 100%; /*宽度为100%*/
+    height: 71px; /*高度为71px*/
+    margin-top: 75px; /*上外边距为75px*/
+}
+
+.loginBox {
+    width: 692px; /*宽为692px*/
+    height: 336px; /*高为336px*/
+    background: url(../images/logininfo.png) no-repeat; /*背景为 图片路径../images/logininfo.png 不平铺*/
+    margin-top: 30px; /*上外边距为30px*/
+}
+
+.loginBox ul {
+    margin: 88px 0 0 285px; /*外边距 上为88PX 右为0 下为0 左为285px*/
+}
+
+.loginBox ul li {
+    margin-bottom: 25px; /*下外边距为25px*/
+}
+
+.loginBox ul li label {
+    color: #687f92; /*字体颜色为#687f92*/
+    padding-left: 25px; /*左内边距为25PX*/
+}
+
+.loginBox ul li label a {
+    color: #687f92; /*字体颜色为#687f92*/
+}
+
+.loginBox ul li label a:hover {
+    color: #3d96c9; /*字体颜色为#3d96c9*/
+}
+
+.loginBox ul li label input {
+    margin-right: 5px; /*右外边距为5px*/
+}
+
+.loginUser {
+    width: 299px; /*宽为299px*/
+    height: 48px; /*高为48px*/
+    background: url(../images/loginuser.png) no-repeat; /*背景为 图片路径../images/loginuser.png 不平铺*/
+    border: none; /*边框为空*/
+    line-height: 48px; /*行高为48px*/
+    padding-left: 44px; /*左内边距为44px*/
+    font-size: 14px; /*字体尺寸为41px*/
+    font-weight: bold; /*字体的粗细为粗体*/
+}
+
+.loginPassword {
+    width: 299px; /*宽为299px*/
+    height: 48px; /*高为48px*/
+    background: url(../images/loginpassword.png) no-repeat; /*背景为 图片路径../images/loginpassword.png 不平铺*/
+    border: none; /*边框为空*/
+    line-height: 48px; /*行高为48px*/
+    padding-left: 44px; /*左内边距为44px*/
+    font-size: 14px; /*字体尺寸为41px*/
+    font-weight: bold; /*字体的粗细为粗体*/
+    color: #90a2bc; /*字体颜色为#90a2bc*/
+}
+
+.loginBtn {
+    width: 111px; /*宽为111px*/
+    height: 35px; /*高为35px*/
+    background: url(../images/buttonbg.png) repeat-x; /*背景为 图片路径../images/buttonbg.png 不平铺*/
+    font-size: 14px; /*字体尺寸为14px*/
+    font-weight: bold; /*字体的粗细为粗体*/
+    color: #fff; /*字体颜色为#fff*/
+    cursor: pointer; /*鼠标为手*/
+    line-height: 35px; /*行高为35px*/
+}
+
+.loginBtn:hover {
+    background: url(../images/buttonbg1.png) repeat-x; /*背景为 图片路径../images/buttonbg1.png 不平铺*/
+}
+
+.loginBm {
+    height: 50px; /*高为50px*/
+    line-height: 50px; /*行高为50px*/
+    text-align: center; /*文本对齐方式为居中*/
+    background: url(../images/loginbg2.png) repeat-x; /*背景为 图片路径../images/loginbg2.png 不平铺*/
+    position: absolute; /*定位方式为绝对定位*/
+    bottom: 0; /*底部偏移为0*/
+    width: 100%; /*宽为100%*/
+    color: #0b3a58; /*字体颜色为#0b3a58*/
+}
+
+.loginBm a {
+    font-weight: bold; /*字体的粗细为粗体*/
+    color: #0b3a58; /*字体颜色为#0b3a58*/
+}
+
+.loginBm a:hover {
+    color: #fff; /*字体颜色为#fff*/
+}

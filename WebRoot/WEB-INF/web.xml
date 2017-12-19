@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <!-- sitemesh的配置项开始 -->
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>
+            com.opensymphony.module.sitemesh.filter.PageFilter
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <!-- sitemesh的配置项结束 -->
+
+    <!-- 伪静态开始 -->
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>
+            org.tuckey.web.filters.urlrewrite.UrlRewriteFilter
+        </filter-class>
+        <init-param>
+            <param-name>confPath</param-name>
+            <param-value>/WEB-INF/urlrewrite.xml</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <!-- 伪静态结束 -->
+
+    <!-- 自动过滤中文 使用struts2.3包的配置 -->
+    <filter>
+        <filter-name>struts</filter-name>
+        <filter-class>
+            org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+        </filter-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>
+                struts-default.xml,struts-plugin.xml,struts2017.xml
+            </param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>struts</filter-name>
+        <url-pattern>*.action</url-pattern>
+        <url-pattern>*.tmp</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>struts</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <!-- struts2.3包的配置结束 -->
+
+    <!-- 加载Spring 监听器 开始 -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <listener>
+        <description>Socket服务随web启动而启动</description>
+        <listener-class>web.Common.GPSListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:baseContext.xml</param-value>
+    </context-param>
+    <!-- 加载Spring 监听器 结束 -->
+
+    <!-- 设置session失效，单位：分钟 -->
+    <session-config>
+        <session-timeout>720</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

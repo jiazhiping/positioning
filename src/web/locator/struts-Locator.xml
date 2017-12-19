@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 定位器模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="locator" namespace="/" extends="myInterceptor">
+
+        <action name="locator_locatorList" class="web.locator.action.LocatorAction" method="locatorList">
+            <!-- 进入定位器管理列表界面 -->
+            <result name="locatorList_SUCCESS">
+                /WEB-INF/pages/locator/locatorList.jsp
+            </result>
+        </action>
+
+        <action name="locator_toAddLocator" class="web.locator.action.LocatorAction" method="toAddLocator">
+            <!-- 进入定位器添加界面 -->
+            <result name="toAddLocator_SUCCESS">
+                /WEB-INF/pages/locator/locatorManager.jsp
+            </result>
+        </action>
+
+        <action name="locator_addLocator" class="web.locator.action.LocatorAction" method="addLocator">
+            <!-- 添加定位器 -->
+            <result name="addLocator_SUCCESS" type="json"/>
+        </action>
+
+        <action name="locator_toUpdateLocator" class="web.locator.action.LocatorAction" method="toUpdateLocator">
+            <!-- 进入定位器修改界面 -->
+            <result name="toUpdateLocator_SUCCESS">
+                /WEB-INF/pages/locator/locatorManager.jsp
+            </result>
+        </action>
+
+        <action name="locator_updateLocator" class="web.locator.action.LocatorAction" method="updateLocator">
+            <!-- 修改定位器 -->
+            <result name="updateLocator_SUCCESS" type="json"/>
+        </action>
+
+        <action name="locator_deleteLocator" class="web.locator.action.LocatorAction" method="deleteLocator">
+            <!-- 删除定位器 -->
+            <result name="deleteLocator_SUCCESS" type="json"/>
+        </action>
+
+        <action name="locator_locatorSelect" class="web.locator.action.LocatorAction" method="locatorSelect">
+            <!-- 进入选择定位器界面 -->
+            <result name="locatorSelect_SUCCESS">
+                /WEB-INF/pages/binding/locatorSelect.jsp
+            </result>
+        </action>
+
+        <action name="locator_toMapLocator" class="web.locator.action.LocatorAction" method="toMapLocator">
+            <!-- 查询该设备是否上线 -->
+            <result name="toMapLocator_SUCCESS" type="json"/>
+        </action>
+
+    </package>
+
+</struts>

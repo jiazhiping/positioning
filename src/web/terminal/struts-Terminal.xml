@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 定位器模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="terminal" namespace="/" extends="myInterceptor">
+
+        <action name="terminal_terminalList" class="web.terminal.action.TerminalAction" method="terminalList">
+            <!-- 进入POS终端管理列表界面 -->
+            <result name="terminalList_SUCCESS">
+                /WEB-INF/pages/terminal/terminalList.jsp
+            </result>
+        </action>
+
+        <action name="terminal_toAddTerminal" class="web.terminal.action.TerminalAction" method="toAddTerminal">
+            <!-- 进入添加POS终端界面 -->
+            <result name="toAddTerminal_SUCCESS">
+                /WEB-INF/pages/terminal/terminalManager.jsp
+            </result>
+        </action>
+
+        <action name="terminal_addTerminal" class="web.terminal.action.TerminalAction" method="addTerminal">
+            <!-- 添加POS终端 -->
+            <result name="addTerminal_SUCCESS" type="json"/>
+        </action>
+
+        <action name="terminal_toUpdateTerminal" class="web.terminal.action.TerminalAction" method="toUpdateTerminal">
+            <!-- 进入修改POS终端界面 -->
+            <result name="toUpdateTerminal_SUCCESS">
+                /WEB-INF/pages/terminal/terminalManager.jsp
+            </result>
+        </action>
+
+        <action name="terminal_updateTerminal" class="web.terminal.action.TerminalAction" method="updateTerminal">
+            <!-- 修改POS终端 -->
+            <result name="updateTerminal_SUCCESS" type="json"/>
+        </action>
+
+        <action name="terminal_deleteTerminal" class="web.terminal.action.TerminalAction" method="deleteTerminal">
+            <!-- 删除POS终端 -->
+            <result name="deleteTerminal_SUCCESS" type="json"/>
+        </action>
+
+        <action name="terminal_terminalSelect" class="web.terminal.action.TerminalAction" method="terminalSelect">
+            <!-- 进入修改POS终端界面 -->
+            <result name="terminalSelect_SUCCESS">
+                /WEB-INF/pages/binding/terminalSelect.jsp
+            </result>
+        </action>
+
+    </package>
+
+</struts>

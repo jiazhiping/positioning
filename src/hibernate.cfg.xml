@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!-- Hibernate总配置文件 -->
+<hibernate-configuration>
+    <session-factory>
+        <!-- 实体对象 -->
+        <mapping class="model.user.domain.User"/>
+        <mapping class="model.user.domain.UserInformation"/>
+        <mapping class="model.user.domain.UserRecord"/>
+
+        <mapping class="model.locator.domain.Locator"/>
+        <mapping class="model.terminal.domain.Terminal"/>
+        <mapping class="model.binding.domain.Binding"/>
+
+        <mapping class="model.gps.domain.GPS"/>
+
+        <mapping class="model.monitoringRecord.domain.Monitoring"/>
+
+        <mapping class="model.deviceUpLine.domain.DeviceUpLine"/>
+
+        <mapping class="model.historicalRoute.domain.HistoricalRoute"/>
+
+        <mapping class="model.foundation.domain.Foundation"/>
+
+        <!-- 视图实体类 -->
+        <mapping class="model.user.domain.UserView"/>
+        <mapping class="model.user.domain.UserRecordView"/>
+        <mapping class="model.binding.domain.BindingView"/>
+        <mapping class="model.monitoringRecord.domain.MonitoringView"/>
+        <mapping class="model.historicalRoute.domain.HistoricalRouteView"/>
+
+    </session-factory>
+</hibernate-configuration>

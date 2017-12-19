@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 定位器模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="binding" namespace="/" extends="myInterceptor">
+
+        <action name="binding_bindingList" class="web.binding.action.BindingAction" method="bindingList">
+            <!-- 进入关系管理列表界面 -->
+            <result name="bindingList_SUCCESS">
+                /WEB-INF/pages/binding/bindingList.jsp
+            </result>
+        </action>
+
+        <action name="binding_toAddBinding" class="web.binding.action.BindingAction" method="toAddBinding">
+            <!-- 进入添加关系界面 -->
+            <result name="toAddBinding_SUCCESS">
+                /WEB-INF/pages/binding/bindingManager.jsp
+            </result>
+        </action>
+
+        <action name="binding_addBinding" class="web.binding.action.BindingAction" method="addBinding">
+            <!-- 绑定定位器与POS终端 -->
+            <result name="addBinding_SUCCESS" type="json"/>
+        </action>
+
+        <action name="binding_deleteBinding" class="web.binding.action.BindingAction" method="deleteBinding">
+            <!-- 解除绑定 -->
+            <result name="deleteBinding_SUCCESS" type="json"/>
+        </action>
+
+        <action name="binding_toMapBinding" class="web.binding.action.BindingAction" method="toMapBinding">
+            <!-- 查询该设备是否上线 -->
+            <result name="toMapBinding_SUCCESS" type="json"/>
+        </action>
+
+
+    </package>
+
+</struts>

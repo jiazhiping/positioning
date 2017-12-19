@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/sitemesh/">
+    <excludes>
+        <pattern>/css/*</pattern>
+        <pattern>/images/*</pattern>
+        <!-- 此处为不需要走模板 -->
+        <pattern>/login.action</pattern>
+        <pattern>/exitUser.action*</pattern>
+        <pattern>/*_*to.action*</pattern>
+        <pattern>/*_add*.action*</pattern>
+        <pattern>/*_update*.action*</pattern>
+        <pattern>/*_delete*.action*</pattern>
+        <pattern>/*_*Select.action*</pattern>
+
+    </excludes>
+
+    <decorator name="main" page="basic.jsp">
+        <!-- 此处为需要走模板 -->
+        <pattern>/*.action*</pattern>
+
+    </decorator>
+</decorators>

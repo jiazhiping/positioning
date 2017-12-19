@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 分析模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="analyze" namespace="/" extends="myInterceptor">
+
+        <action name="analyze_analyzeList" class="web.analyze.action.AnalyzeAction" method="analyzeList">
+            <result name="analyzeList_SUCCESS">
+                /WEB-INF/pages/analyze/analyzeList.jsp
+            </result>
+        </action>
+
+        <action name="analyze_analyzeToList" class="web.analyze.action.AnalyzeAction" method="analyzeToList">
+            <result name="analyzeToList_SUCCESS">
+                /WEB-INF/pages/analyze/analyzeToList.jsp
+            </result>
+        </action>
+
+
+    </package>
+</struts>

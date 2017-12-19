@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 实时监控模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="historicalRoute" namespace="/" extends="myInterceptor">
+        <action name="historicalRoute_historicalRouteList" class="web.historicalRoute.action.HistoricalRouteAction"
+                method="historicalRouteList">
+            <result name="historicalRouteList_SUCCESS">
+                /WEB-INF/pages/historicalRoute/historicalRouteList.jsp
+            </result>
+        </action>
+
+        <action name="historicalRoute_toHistoricalRoute" class="web.historicalRoute.action.HistoricalRouteAction"
+                method="toHistoricalRoute">
+            <result name="toHistoricalRoute_SUCCESS">
+                /WEB-INF/pages/historicalRoute/HistoricalRouteMap.jsp
+            </result>
+        </action>
+
+        <action name="historicalRoute_historicalRoute" class="web.historicalRoute.action.HistoricalRouteAction"
+                method="historicalRoute">
+            <result name="historicalRoute_SUCCESS" type="json"/>
+        </action>
+
+
+    </package>
+
+
+</struts>

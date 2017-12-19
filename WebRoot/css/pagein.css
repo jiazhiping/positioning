@@ -1,0 +1,153 @@
+/*分页样式表*/
+.pagin {
+    position: relative;
+    margin-top: 10px;
+    padding: 0 12px;
+    font-size: 10pt;
+    font-family: '微软雅黑';
+}
+
+.pagin ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagin span {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+
+.pagin .textPage {
+    border: 0px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    width: 50px;
+    height: 20px;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.pagin .blue {
+    color: #056dae;
+    font-style: normal;
+}
+
+.pagin .paginList {
+    position: absolute;
+    right: 12px;
+    top: 0px;
+}
+
+.pagin .paginList .paginItem {
+    float: left;
+}
+
+.pagin .paginList .paginItem a {
+    float: left;
+    width: 31px;
+    height: 28px;
+    border: 1px solid #C8C8C8;
+    text-align: center;
+    line-height: 30px;
+    border-left: none;
+    color: #3399d5;
+    text-decoration: none;
+}
+
+.pagin .paginList .paginItem:first-child a {
+    border-left: 1px solid #C8C8C8;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.pagin .paginList .paginItem:last-child a {
+    border-right: 1px solid #C8C8C8;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pagin .paginList .paginItem.current, .pagin .paginList .paginItem.current a {
+    background: #D7D7D7;
+    cursor: default;
+    color: #737373;
+}
+
+.pagin .paginList .paginItem:hover {
+    background: #D7D7D7;
+}
+
+.pagin .paginList .paginItem:first-child:hover {
+    background: #D7D7D7;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.pagin .paginList .paginItem:last-child:hover {
+    background: #D7D7D7;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pagin .paginList .paginItem.more, .pagin .paginList .paginItem.more a:hover {
+    cursor: default;
+}
+
+.pagin .paginList .paginItem.more:hover {
+    background: #FFF;
+}
+
+.pagin .paginList .paginItem.more a {
+    color: #737373;
+}
+
+.pagefirst {
+    background: url(../images/first.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}
+
+.pagefirst1 {
+    background: url(../images/first1.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}
+
+.pagepre {
+    background: url(../images/pre.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}
+
+.pagepre1 {
+    background: url(../images/pre1.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}
+
+.pagenext {
+    background: url(../images/next.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}
+
+.pagenext1 {
+    background: url(../images/next1.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}
+
+.pagelast {
+    background: url(../images/last.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}
+
+.pagelast1 {
+    background: url(../images/last1.gif) no-repeat center center;
+    width: 31px;
+    height: 28px;
+}

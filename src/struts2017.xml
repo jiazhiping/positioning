@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+    <!--当struts.xml配置文件修改后，系统是否重新加载该文件，开发阶段打开此功能  -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <!--  开发提示：出错时打印更详细的信息-->
+    <constant name="struts.devMode" value="false"/>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <!-- 资源文件 -->
+    <constant name="struts.custom.i18n.resources" value="app"/>
+
+    <!-- 默认执行什么.action 说明：.tmp前台，.htmls后台 -->
+    <constant name="struts.action.extension" value="action,tmp"/>
+
+    <!-- Spring自动注入 value="name"-->
+    <constant name="struts.objectFactory.spring.autoWire" value="type"/>
+
+    <!-- 配置ui标签的theme属性 -->
+    <constant name="struts.ui.theme" value="simple"/>
+
+    <constant name="struts.multipart.parser" value="jakarta"/>
+    <!-- 文件上传的大小限制 800MB -->
+    <constant name="struts.multipart.maxSize" value="838860800"/>
+
+    <!-- 加载子配置文件-->
+    <include file="web/monitoring/struts-Monitoring.xml"/>
+    <include file="web/user/struts-User.xml"/>
+    <include file="web/locator/struts-Locator.xml"/>
+    <include file="web/terminal/struts-Terminal.xml"/>
+    <include file="web/binding/struts-Binding.xml"/>
+    <include file="web/deviceUpLine/struts-DeviceUpLine.xml"/>
+    <include file="web/monitoringRecord/struts-MonitoringRecord.xml"/>
+    <include file="web/historicalRoute/struts-HistoricalRoute.xml"/>
+    <include file="web/foundation/struts-Foundation.xml"/>
+    <include file="web/analyze/struts-Analyze.xml"/>
+
+    <!-- 配置自定义拦截器 -->
+    <package name="myInterceptor" extends="json-default,struts-default"
+             abstract="true">
+        <interceptors>
+            <interceptor name="checkLogin"
+                         class="web.Common.CheckLoginInterceptor">
+            </interceptor>
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="checkLogin"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="loginStack"/>
+        <!-- 全局的结果集 -->
+        <global-results>
+            <result name="noLogin" type="redirectAction">
+                exitUser.action
+            </result>
+        </global-results>
+    </package>
+
+</struts>

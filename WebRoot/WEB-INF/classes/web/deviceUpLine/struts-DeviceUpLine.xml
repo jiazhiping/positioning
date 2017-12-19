@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 实时监控模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="deviceUpLine" namespace="/" extends="myInterceptor">
+        <action name="deviceUpLine_deviceUpLineList" class="web.deviceUpLine.action.DeviceUpLineAction"
+                method="deviceUpLineList">
+            <!-- 登录成功之后进入后台主界面 -->
+            <result name="deviceUpLineList_SUCCESS">
+                /WEB-INF/pages/deviceUpLine/deviceUpLineList.jsp
+            </result>
+        </action>
+
+    </package>
+
+</struts>

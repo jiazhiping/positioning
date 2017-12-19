@@ -1,0 +1,271 @@
+﻿@charset "utf-8";
+
+.toolbar1 {
+    float: right;
+}
+
+.toolbar1 li {
+    background: url(../images/toolbg.gif) repeat-x;
+    line-height: 33px;
+    height: 33px;
+    border: solid 1px #d3dbde;
+    float: left;
+    padding-right: 10px;
+    margin-left: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.toolbar1 li span {
+    float: left;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+
+
+
+
+.sort {
+    padding-left: 3px;
+}
+
+/*form*/
+
+
+
+.dfinput1 {
+    width: 345px;
+    height: 32px;
+    line-height: 32px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    background-color: #ECECEC;
+    text-indent: 5px;
+    float: left;
+    margin-bottom: 4px;
+}
+
+.textinput {
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    background: url(../images/inputbg.gif) repeat-x;
+    padding: 5px;
+    width: 504px;
+    height: 135px;
+    line-height: 20px;
+    overflow: hidden;
+    float: left;
+}
+
+.btn {
+    width: 137px;
+    height: 35px;
+    background: url(../images/btnbg.png) no-repeat;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+/*error 404*/
+.error {
+    background: url(../images/404.png) no-repeat;
+    width: 490px;
+    margin-top: 75px;
+    padding-top: 65px;
+}
+
+.error h2 {
+    font-size: 22px;
+    padding-left: 154px;
+}
+
+.error p {
+    padding-left: 154px;
+    line-height: 35px;
+    color: #717678;
+}
+
+.reindex {
+    padding-left: 154px;
+}
+
+.reindex a {
+    width: 115px;
+    height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: #3c95c8;
+    display: block;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+/*imgtable*/
+.imgtable {
+    width: 100%;
+    border: solid 1px #cbcbcb;
+}
+
+.imgtable th {
+    background: url(../images/th.gif) repeat-x;
+    height: 34px;
+    line-height: 34px;
+    border-bottom: solid 1px #b6cad2;
+    text-indent: 21px;
+    text-align: left;
+}
+
+.imgtable td {
+    line-height: 20px;
+    text-indent: 21px;
+    border-right: dotted 1px #c7c7c7;
+}
+
+.imgtable td img {
+    margin: 10px 20px 10px 0;
+}
+
+.imgtable td p {
+    color: #919191;
+}
+
+.imgtable td i {
+    font-style: normal;
+    color: #ea2020;
+}
+
+.imgtd {
+    text-indent: 0;
+}
+
+.imgtable tbody tr.odd {
+    background: #f5f8fa;
+}
+
+.imgtable tbody tr:hover {
+    background: #e5ebee;
+}
+
+/*tab*/
+.itab {
+    height: 36px;
+    border-bottom: solid 1px #d0dee5;
+    position: relative;
+    border-left: solid 1px #d3dbde;
+}
+
+.itab ul li {
+    float: left;
+    height: 37px;
+    line-height: 37px;
+    background: url(../images/itabbg.png) repeat-x;
+    border-right: solid 1px #d3dbde;
+}
+
+.itab ul li a {
+    font-size: 14px;
+    color: #000;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.itab ul li a.selected {
+    height: 37px;
+    display: block;
+    background: url(../images/itabbg1.png) repeat-x;
+    font-weight: bold;
+}
+
+.tabson {
+    margin: 18px 0px;
+}
+
+.formtext {
+    height: 45px;
+    padding-left: 25px;
+    line-height: 20px;
+    color: #848383;
+}
+
+.formtext b {
+    color: #d70101;
+}
+
+.forminfo b {
+    color: #FF0000;
+    padding-left: 2px;
+}
+
+/*seachform*/
+
+.scinput {
+    width: 150px;
+    height: 33px;
+    line-height: 33px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    background: url(../images/inputbg.gif) repeat-x;
+    text-indent: 5px;
+    float: right;
+    margin-right: 4px;
+}
+
+.divPage {
+    clear: both;
+    line-height: 35px;
+    float: right;
+}
+
+.divPage span {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.img {
+    width: 35px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+}
+
+.img:hover {
+    -webkit-transform: scale(5);
+    -moz-transform: scale(5);
+    -ms-transform: scale(5);
+    -o-transform: scale(5);
+    transform: scale(5);
+}
+
+.autoBGImg {
+    width: 34px;
+    height: 34px;
+    border: 0px solid #ff0000;
+    -webkit-background-size: cover; /* Safari 和 Chrome */
+    -moz-background-size: cover; /* Firefox */
+    -ms-background-size: cover; /* IE */
+    -o-background-size: cover; /* Opera */
+    background-size: cover;
+}
+
+.autoBGImg:hover {
+    -webkit-transform: scale(4);
+    -moz-transform: scale(4);
+    -ms-transform: scale(4);
+    -o-transform: scale(4);
+    transform: scale(4);
+}
+

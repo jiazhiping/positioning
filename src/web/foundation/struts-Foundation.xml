@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 系统默认值模块 Struts 2配置文件 -->
+<struts>
+
+    <package name="foundation" namespace="/" extends="myInterceptor">
+        <action name="foundation_foundationList" class="web.foundation.action.FoundationAction"
+                method="foundationList">
+            <result name="foundationList_SUCCESS">
+                /WEB-INF/pages/foundation/foundationList.jsp
+            </result>
+        </action>
+        <action name="foundation_updateFoundation" class="web.foundation.action.FoundationAction"
+                method="updateFoundation">
+            <result name="updateFoundation_SUCCESS" type="json"/>
+        </action>
+    </package>
+
+</struts>

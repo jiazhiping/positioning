@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+
+<!--	
+	Struts2伪静态
+	http://tuckey.org/urlrewrite/	
+-->
+<urlrewrite>
+
+	<!-- 
+		[a-zA-Z0-9]+:传字母和数字
+		.*：传中文，字母，数字
+	<rule>
+		<from>^/([0-9]+)/(.*)/_updateUser.tmp$</from>
+		<to>/user_toUpdateUser.tmp?userForm.id=$1</to>
+	</rule>
+	-->
+	<!-- 进入历史轨迹地图界面 -->
+	<rule>
+		<from>^/(.*)/_toHistoricalRoute.action</from>
+		<to type="forward">
+			/historicalRoute_toHistoricalRoute.action?historicalRouteForm.locatorName=$1
+		</to>
+	</rule>
+
+</urlrewrite>
+

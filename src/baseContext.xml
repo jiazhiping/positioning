@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <!-- Spring与Hibernate之间的配置 -->
+    <!-- （1）加载属性文件，比如使用${}获取值 -->
+    <bean id="propertyHolderConfig" name="propertyHolderConfig"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <!-- 启动Hibernate连接数据库 -->
+                <value>classpath:hibernate.properties</value>
+                <!-- 加载资源文件
+                    <value>classpath:i18n.properties</value>
+                -->
+            </list>
+        </property>
+    </bean>
+
+    <!-- （2）定义数据源(指定连接到哪个数据库) class:数据库连接池(带数据库的连接)作用:解决数据库多次打开和关闭 destroy-method销毁方法-->
+    <bean id="dataSource" name="dataSource"
+          class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName"
+                  value="${hibernate.connection.driver_class}"/><!-- 数据库驱动程序类名 -->
+        <property name="url" value="${hibernate.connection.url}"/><!-- 数据库URL地址 -->
+        <property name="username"
+                  value="${hibernate.connection.username}"/><!-- 数据库用户名 -->
+        <property name="password"
+                  value="${hibernate.connection.password}"/><!-- 数据库密码 -->
+        <!-- 这些值都是从hibernate.properties属性文件中获取 -->
+    </bean>
+
+    <!-- （3）创建Hibernate会话工厂 实例化bean的工厂-->
+    <bean id="sessionFactory" name="sessionFactory"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+
+        <property name="packagesToScan">
+            <list>
+                <value>model.**.*</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    ${hibernate.dialect}
+                </prop><!-- 方言 解决不同数据库的操作-->
+                <prop key="hibernate.show_sql">
+                    ${hibernate.show_sql}
+                </prop><!-- 是否显示sql，在使用中关闭，在开发中使用 -->
+                <!--★★★★★★★★★带有注解的sql -->
+                <prop key="hibernate.use_sql_comments">
+                    ${hibernate.use_sql_comments}
+                </prop>
+            </props>
+        </property>
+
+        <!-- 指定数据源 -->
+        <property name="dataSource">
+            <ref local="dataSource"/>
+        </property>
+
+        <!-- 二进制大文件的处理 -->
+        <property name="lobHandler">
+            <ref local="defaultLobHandler"/><!-- 如果是Oracle9，在此处就使用上面的oracleLobHandler -->
+        </property>
+
+    </bean>
+
+    <!-- 二进制的大文件 -->
+    <bean id="nativeJdbcExtractor" name="nativeJdbcExtractor"
+          class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"/>
+    <bean id="oracleLobHandler" name="oracleLobHandler"
+          class="org.springframework.jdbc.support.lob.OracleLobHandler"
+          lazy-init="true">
+        <property name="nativeJdbcExtractor">
+            <ref local="nativeJdbcExtractor"/>
+        </property>
+    </bean>
+
+    <bean id="defaultLobHandler" name="defaultLobHandler"
+          class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+          lazy-init="true"/>
+
+    <!--(4) hibernate模板 -->
+    <bean id="hibernateOperations" name="hibernateOperations"
+          class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <constructor-arg>
+            <ref local="sessionFactory"/><!-- 指定会话工厂 -->
+        </constructor-arg>
+        <property name="allowCreate" value="true"/><!-- 是否允许创建一个线程 -->
+        <property name="cacheQueries" value="true"/><!-- 查询是否允许缓存(hibernate的二级缓存，缓存的是查询语句，微小的提高性能) -->
+    </bean>
+
+    <!-- jdbc模板 -->
+    <bean id="jdbcOperations" name="jdbcOperations"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref local="dataSource"/>
+        </constructor-arg>
+    </bean>
+
+    <!--（5） 事物处理（解决并发问题） Hibernate支持乐观锁  -->
+    <bean id="transactionManager" name="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref local="sessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="baseTransactionProxy" name="baseTransactionProxy"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+          abstract="true">
+        <property name="transactionManager">
+            <ref local="transactionManager"/>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="add*">PROPAGATION_REQUIRED</prop><!-- PROPAGATION_REQUIRED新事物 -->
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="modify*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+                <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop><!-- readOnly只读事物 -->
+                <prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="srv" class="web.Common.proto.Srv"/>
+    <bean class="web.Common.utils.MyApplicationContextUtil"/>
+
+    <!-- 配置调度程序quartz -->
+    <!-- 定义目标bean和bean中的方法 -->
+    <bean id="SpringQtzJob" class="model.Common.SpringQtz"/>
+    <bean id="SpringQtzJobMethod"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="SpringQtzJob"/>
+        </property>
+        <property name="targetMethod">  <!-- 要执行的方法名称 -->
+            <value>execute</value>
+        </property>
+    </bean>
+
+    <!-- 调度触发器 -->
+    <bean id="CronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="SpringQtzJobMethod"/>
+        <property name="cronExpression" value="0/5 * * * * ?"/>
+    </bean>
+
+    <bean id="SpringJobSchedulerFactoryBean"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="CronTriggerBean"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 使用注解定义事务 -->
+    <tx:annotation-driven/>
+
+    <!-- 提供spring注解支持 -->
+    <context:annotation-config/>
+    <context:spring-configured/>
+
+    <!-- 通过注解，扫描spring文件 -->
+    <context:component-scan base-package="model"/>
+    <aop:aspectj-autoproxy/>
+</beans>
+
+
