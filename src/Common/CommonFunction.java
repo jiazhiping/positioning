@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 通用的方法类（此类中方法都编写成静态方法）
- * Created by Myk on 2017/10/31.
+ *
  */
 public class CommonFunction {
     private static double EARTH_RADIUS = 6378.137;//地球旋转轴
