@@ -1,20 +1,37 @@
+##ignore this file##
+/target/
+.classpath
+.project
+.settings
+ ##filter databfile、sln file##
+*.mdb
+*.ldb
+*.sln
+##class file##
+*.com
+*.class
+*.dll
+*.exe
 *.o
-*~
-*.diff
-*.patch
-*.core
-core
-tags
-.deps/
-compat/.dirstamp
-aclocal.m4
-autom4te.cache/
-config.log
-config.status
-etc/
-tmux
-Makefile
-Makefile.in
-configure
-tmux.1.*
-*.dSYM
+*.so
+# compression file
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.via
+*.tmp
+*.err
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
